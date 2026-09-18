@@ -5,189 +5,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Polarisation circulaire</title>
+    <title>Analyseur de polarisation</title>
 
     <link rel="stylesheet" href="style.css">
-
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['\\(', '\\)']],
-                displayMath: [['\\[', '\\]']]
-            }
-        };
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-
 
 <body>
 
-<header>
-    <h1>Polarisation circulaire et analyseur</h1>
-    <p>Simulation interactive</p>
-</header>
+    <main class="container">
+
+        <h1>Intensité en sortie de l’analyseur</h1>
+
+        <section class="simulation">
+
+            <!-- ================================================= -->
+            <!-- CADRAN VECTORIEL                                  -->
+            <!-- ================================================= -->
+
+            <div class="card">
+
+                <canvas id="vectorCanvas"></canvas>
+
+                <div class="legend">
+
+                    <div class="legend-item">
+                        <span class="legend-line red"></span>
+                        Champ incident
+                    </div>
+
+                    <div class="legend-item">
+                        <span class="legend-line purple"></span>
+                        Axe de l'analyseur
+                    </div>
+
+                    <div class="legend-item">
+                        <span class="legend-line green"></span>
+                        Projection
+                    </div>
+
+                </div>
+
+            </div>
 
 
-<main>
+            <!-- ================================================= -->
+            <!-- GRAPHE I(theta)                                   -->
+            <!-- ================================================= -->
+
+            <div class="card">
+
+                <canvas id="graphCanvas"></canvas>
+
+            </div>
+
+        </section>
 
 
-    <!-- ================= FIGURES ================= -->
+        <!-- ===================================================== -->
+        <!-- CURSEUR THETA                                        -->
+        <!-- ===================================================== -->
 
-    <section class="figures">
+        <section class="slider-container">
 
+            <label for="thetaSlider">
+                Angle de l'analyseur θ
+            </label>
 
-        <!-- CADRAN OXY -->
+            <input
+                type="range"
+                id="thetaSlider"
+                min="0"
+                max="360"
+                step="1"
+                value="0"
+            >
 
-        <div class="card">
+            <div class="theta-value">
+                θ = <span id="thetaValue">0</span>°
+            </div>
 
-            <h2>Champ électrique dans le plan \(Oxy\)</h2>
+        </section>
 
-            <canvas
-                id="polarisationCanvas"
-                width="500"
-                height="500">
-            </canvas>
-
-        </div>
-
-
-        <!-- COURBE -->
-
-        <div class="card">
-
-            <h2>Intensité en fonction de \(\theta\)</h2>
-
-            <canvas
-                id="intensityCanvas"
-                width="700"
-                height="450">
-            </canvas>
-
-        </div>
-
-    </section>
+    </main>
 
 
-    <!-- ================= CURSEUR ================= -->
-
-    <section class="controls">
-
-        <label>
-            Angle du polariseur :
-            <span id="thetaValue">0°</span>
-        </label>
-
-        <input
-            id="thetaSlider"
-            type="range"
-            min="0"
-            max="360"
-            value="0"
-            step="1"
-        >
-
-        <button id="playButton">
-            ⏸ Pause
-        </button>
-
-    </section>
-
-
-    <!-- ================= VALEURS ================= -->
-
-    <section class="values">
-
-        <div>
-            <strong>Ex</strong>
-            <span id="ExValue">1.000</span>
-        </div>
-
-        <div>
-            <strong>Ey</strong>
-            <span id="EyValue">0.000</span>
-        </div>
-
-        <div>
-            <strong>E sortie</strong>
-            <span id="EoutValue">1.000</span>
-        </div>
-
-        <div>
-            <strong>I instantanée</strong>
-            <span id="IValue">1.000</span>
-        </div>
-
-        <div class="average">
-            <strong>I moyenne</strong>
-            <span id="averageValue">0.500</span>
-        </div>
-
-    </section>
-
-
-    <!-- ================= EQUATIONS ================= -->
-
-    <section class="equations">
-
-        <h2>Équations</h2>
-
-        <p>
-            \[
-            \vec E_{\mathrm{inc}}(t)
-            =
-            E_0
-            [\cos(t)\vec u_x+\sin(t)\vec u_y]
-            \]
-        </p>
-
-        <p>
-            \[
-            \vec u_\theta
-            =
-            \cos(\theta)\vec u_x
-            +
-            \sin(\theta)\vec u_y
-            \]
-        </p>
-
-        <p>
-            \[
-            E_{\mathrm{sortie}}
-            =
-            \vec E_{\mathrm{inc}}
-            \cdot
-            \vec u_\theta
-            =
-            E_0\cos(t-\theta)
-            \]
-        </p>
-
-        <p>
-            \[
-            I(t,\theta)
-            =
-            E_{\mathrm{sortie}}^2
-            \]
-        </p>
-
-        <p class="important">
-            \[
-            \boxed{
-            \langle I(\theta)\rangle_t
-            =
-            \frac{E_0^2}{2}
-            }
-            \]
-        </p>
-
-    </section>
-
-</main>
-
-
-<script src="script.js"></script>
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 
 </body>
+
 </html>
