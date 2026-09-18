@@ -12,60 +12,44 @@
 
 <body>
 
-    <main class="container">
+    <div class="container">
 
         <h1>Intensité en sortie de l’analyseur</h1>
 
-        <section class="simulation">
+        <div class="simulation">
 
-            <!-- ================================================= -->
-            <!-- CADRAN VECTORIEL                                  -->
-            <!-- ================================================= -->
-
+            <!-- CADRAN VECTORIEL -->
             <div class="card">
-
                 <canvas id="vectorCanvas"></canvas>
 
                 <div class="legend">
-
-                    <div class="legend-item">
-                        <span class="legend-line red"></span>
+                    <span>
+                        <i class="red"></i>
                         Champ incident
-                    </div>
+                    </span>
 
-                    <div class="legend-item">
-                        <span class="legend-line purple"></span>
+                    <span>
+                        <i class="purple"></i>
                         Axe de l'analyseur
-                    </div>
+                    </span>
 
-                    <div class="legend-item">
-                        <span class="legend-line green"></span>
+                    <span>
+                        <i class="green"></i>
                         Projection
-                    </div>
-
+                    </span>
                 </div>
-
             </div>
 
-
-            <!-- ================================================= -->
-            <!-- GRAPHE I(theta)                                   -->
-            <!-- ================================================= -->
-
+            <!-- GRAPHE -->
             <div class="card">
-
                 <canvas id="graphCanvas"></canvas>
-
             </div>
 
-        </section>
+        </div>
 
 
-        <!-- ===================================================== -->
-        <!-- CURSEUR THETA                                        -->
-        <!-- ===================================================== -->
-
-        <section class="slider-container">
+        <!-- CURSEUR -->
+        <div class="controls">
 
             <label for="thetaSlider">
                 Angle de l'analyseur θ
@@ -80,18 +64,15 @@
                 value="0"
             >
 
-            <div class="theta-value">
-                θ = <span id="thetaValue">0</span>°
+            <div id="thetaValue">
+                θ = 0°
             </div>
 
-        </section>
+        </div>
 
-    </main>
+    </div>
 
-
-    <!-- JavaScript -->
     <script src="script.js"></script>
 
 </body>
-
 </html>
