@@ -371,7 +371,7 @@ function drawGraph() {
     graphCtx.fillStyle = "#222";
 
     graphCtx.fillText(
-        "Intensité transmise : I = I₀ cos²(θ)",
+        "Intensité transmise : I = I₀ cos²(θ) - loi de Malus",
         width / 2,
         25
     );
