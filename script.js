@@ -368,11 +368,12 @@ function drawGraph() {
     graphCtx.textAlign = "center";
 
     graphCtx.font = "bold 16px Arial";
+    graphCtx.fillStyle = "#222";
 
     graphCtx.fillText(
-        "Intensité en sortie de l’analyseur",
+        "Intensité transmise : I = I₀ cos²(θ)",
         width / 2,
-        20
+        25
     );
 
 
