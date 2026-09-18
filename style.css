@@ -1,197 +1,207 @@
+/* ============================================================
+   STYLE GÉNÉRAL
+   ============================================================ */
+
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f3f5f7;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #f5f7fa;
+
     color: #222;
 }
 
-/* ================= HEADER ================= */
 
-header {
-    background-color: #17202a;
-    color: white;
+/* ============================================================
+   CONTENEUR PRINCIPAL
+   ============================================================ */
+
+.container {
+    width: 1100px;
+    max-width: 95%;
+
+    margin: 0 auto;
+}
+
+
+/* ============================================================
+   TITRE
+   ============================================================ */
+
+h1 {
     text-align: center;
-    padding: 22px;
+
+    margin: 20px 0;
+
+    font-size: 24px;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 28px;
-}
 
-header p {
-    color: #d5d8dc;
-    margin-bottom: 0;
-}
+/* ============================================================
+   ZONE DE SIMULATION
+   ============================================================ */
 
-/* ================= PAGE ================= */
-
-main {
-    max-width: 1250px;
-    margin: 25px auto;
-    padding: 0 20px;
-}
-
-/* ================= FIGURES ================= */
-
-.figures {
+.simulation {
     display: grid;
-    grid-template-columns: 1fr 1.25fr;
-    gap: 25px;
+
+    grid-template-columns:
+        1fr
+        1.15fr;
+
+    gap: 30px;
+
+    align-items: start;
 }
+
+
+/* ============================================================
+   CARTES
+   ============================================================ */
 
 .card {
-    background-color: white;
+    background: white;
+
     border-radius: 12px;
+
     padding: 20px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+
+    box-shadow:
+        0 3px 12px
+        rgba(0, 0, 0, 0.10);
 }
 
-.card h2 {
-    text-align: center;
-    margin-top: 0;
-    font-size: 20px;
-}
+
+/* ============================================================
+   CANVAS
+   ============================================================ */
 
 canvas {
-    display: block;
     width: 100%;
-    height: auto;
-}
 
-/* ================= CONTROLES ================= */
-
-.controls {
-    background-color: white;
-    margin-top: 25px;
-    padding: 20px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
-}
-
-.controls label {
     display: block;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 15px;
 }
 
-#thetaValue {
-    color: #8e44ad;
+#vectorCanvas,
+#graphCanvas {
+    height: 500px;
+}
+
+
+/* ============================================================
+   LÉGENDE
+   ============================================================ */
+
+.legend {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin-top: 10px;
+
+    flex-wrap: wrap;
+
+    font-size: 14px;
+}
+
+.legend-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+.legend-line {
+    display: inline-block;
+
+    width: 22px;
+
+    height: 4px;
+}
+
+.legend-line.red {
+    background: red;
+}
+
+.legend-line.purple {
+    background: purple;
+}
+
+.legend-line.green {
+    background: green;
+}
+
+
+/* ============================================================
+   CURSEUR
+   ============================================================ */
+
+.slider-container {
+    margin-top: 25px;
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 3px 12px
+        rgba(0, 0, 0, 0.10);
+}
+
+.slider-container label {
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
 }
 
 #thetaSlider {
-    width: 80%;
+    width: 100%;
+
     cursor: pointer;
 }
 
-/* ================= BOUTON ================= */
 
-button {
-    display: block;
-    margin: 18px auto 0;
-    padding: 10px 25px;
-    border: none;
-    border-radius: 7px;
-    background-color: #8e44ad;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
+/* ============================================================
+   VALEUR DE THETA
+   ============================================================ */
 
-button:hover {
-    background-color: #6c3483;
-}
-
-/* ================= VALEURS ================= */
-
-.values {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
-    margin-top: 20px;
-}
-
-.values > div {
-    background-color: white;
-    padding: 15px;
-    border-radius: 8px;
+.theta-value {
     text-align: center;
-    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.08);
-}
 
-.values strong {
-    display: block;
-    color: #555;
-    margin-bottom: 8px;
-}
-
-.values span {
     font-size: 20px;
-    font-weight: bold;
+
+    margin-top: 10px;
+
+    color: #333;
 }
 
-.average {
-    border: 2px solid #2471a3;
-}
 
-.average span {
-    color: #2471a3;
-}
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
 
-/* ================= EQUATIONS ================= */
+@media (max-width: 800px) {
 
-.equations {
-    margin-top: 25px;
-    padding: 25px;
-    background-color: #17202a;
-    color: white;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.equations h2 {
-    margin-top: 0;
-}
-
-.equations p {
-    font-size: 18px;
-}
-
-.important {
-    color: #5dade2;
-    font-size: 22px !important;
-}
-
-/* ================= MOBILE ================= */
-
-@media (max-width: 900px) {
-
-    .figures {
+    .simulation {
         grid-template-columns: 1fr;
     }
 
-    .values {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-
-    .values {
-        grid-template-columns: 1fr;
-    }
-
-    #thetaSlider {
-        width: 100%;
-    }
-
-    header h1 {
-        font-size: 22px;
+    #vectorCanvas,
+    #graphCanvas {
+        height: 400px;
     }
 }
